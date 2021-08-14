@@ -8,6 +8,6 @@ The points you get will be used to increase likes/views/shares and others on you
 Youtube Demo : https://www.youtube.com/watch?v=1Jspmin6Qu4
 
 I really hope for your support by subscribing to my youtube channel :
-My Youtube Channel: https://www.youtube.com/c/freeangelz?sub_confirmation=1
+https://www.youtube.com/c/freeangelz?sub_confirmation=1
 
 note: The extension may not work in the future if tiktok/instagram/addmefast change their layout, in this case, you should subscribe my channel to get an update for the new script.
