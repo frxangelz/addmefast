@@ -1,0 +1,41 @@
+{
+  "name": "Addmefast : by freeangel",
+  "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "description": "Macro to gain addmefast point",
+  "homepage_url": "http://frxangelz.blogspot.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "Addmefast bot",
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": [
+    "background",
+    "http://*.tiktok.com/*",
+    "https://tiktok.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+	      "jquery.min.js",
+        "inject.js",
+		"tiktok.js",
+		"instagram.js"
+      ]
+    }
+  ]
+}
