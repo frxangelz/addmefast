@@ -53,7 +53,6 @@ function do_instagram(){
 	instagram_done = true;
 	
 	console.log("do_instagram");
-	tiktok_done = true;
 	console.log("config.actionType = "+config.actionType);
 	
 	if (config.actionType === _ACTION_TYPE_INSTAGRAM_LIKE) {

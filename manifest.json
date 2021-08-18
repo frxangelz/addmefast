@@ -34,7 +34,8 @@
 	      "jquery.min.js",
         "inject.js",
 		"tiktok.js",
-		"instagram.js"
+		"instagram.js",
+		"fb.js"
       ]
     }
   ]

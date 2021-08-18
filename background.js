@@ -10,6 +10,8 @@ var config = {
 	igfollow : true,
 	tiktoklike : true,
 	tiktokfollow: true,
+	fbpostlike: true,
+	fblike: true,
 	actionType: 3,
 }
 
@@ -23,6 +25,8 @@ chrome.runtime.onMessage.addListener(
 		config.igfollow = request.igfollow;
 		config.tiktoklike = request.tiktoklike;
 		config.tiktokfollow = request.tiktokfollow;
+		config.fbpostlike = request.fbpostlike;
+		config.fblike = request.fblike;
 		send_enable();
 		return;
 	}
@@ -32,7 +36,17 @@ chrome.runtime.onMessage.addListener(
 		if((sender) && (sender.tab) && (sender.tab.id))
 			vtabid = sender.tab.id;
 		
-		var message = {action: "set", enable: config.enable, max:config.max, iglike:config.iglike, igfollow:config.igfollow, tiktoklike:config.tiktoklike, tiktokfollow:config.tiktokfollow, actType:config.actionType, tabid:vtabid};
+		var message = {action: "set", 
+					   enable: config.enable, 
+					   max:config.max, 
+					   iglike:config.iglike, 
+					   igfollow:config.igfollow, 
+					   tiktoklike:config.tiktoklike, 
+					   tiktokfollow:config.tiktokfollow, 
+					   fbpostlike:config.fbpostlike,
+					   fblike:config.fblike,
+					   actType:config.actionType, 
+					   tabid:vtabid};
 		opened_tab_id = vtabid;
 		sendResponse(message);
 		if(vtabid !== 0)
@@ -43,6 +57,7 @@ chrome.runtime.onMessage.addListener(
 	if(request.action == "setActType"){
 	
 		config.actionType = request.actType;
+		console.log("actionType set to : "+config.actionType);
 		return;
 	}
 	
@@ -57,7 +72,16 @@ chrome.runtime.onMessage.addListener(
  function send_enable(){
  
 		chrome.tabs.query({}, function(tabs) {
-		var message = {action: "set", enable: config.enable, max:config.max, iglike:config.iglike, igfollow:config.igfollow, tiktoklike:config.tiktoklike, tiktokfollow:config.tiktokfollow, actType:config.actionType};
+		var message = {action: "set", 
+					   enable: config.enable, 
+					   max:config.max, 
+					   iglike:config.iglike, 
+					   igfollow:config.igfollow, 
+					   tiktoklike:config.tiktoklike, 
+					   tiktokfollow:config.tiktokfollow, 
+					   fbpostlike:config.fbpostlike,
+					   fblike:config.fblike,
+					   actType:config.actionType};
 		for (var i=0; i<tabs.length; ++i) {
 			chrome.tabs.sendMessage(tabs[i].id, message);
 		}

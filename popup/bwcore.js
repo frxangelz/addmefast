@@ -4,7 +4,9 @@ var config = {
 	iglike: false,
 	igfollow: false,
 	tiktoklike: false,
-	tiktokfollow: false
+	tiktokfollow: false,
+	fbpostlike: true,
+	fblike: true
 }
 
 $(document).ready(function(){
@@ -17,8 +19,10 @@ $(document).ready(function(){
 			config.igfollow = $("#igfollow").is(":checked");
 			config.tiktoklike = $("#tiktoklike").is(":checked");
 			config.tiktokfollow = $("#tiktokfollow").is(":checked");
+			config.fbpostlike = $("#fbpostlike").is(":checked");
+			config.fblike = $("#fblike").is(":checked");
 
-			if((!config.iglike) && (!config.igfollow) && (!config.tiktoklike) && (!config.tiktokfollow)){
+			if((!config.iglike) && (!config.igfollow) && (!config.tiktoklike) && (!config.tiktokfollow) && (!config.fblike) && (!config.fbpostlike)){
 				return;
 			}
 
@@ -49,7 +53,9 @@ function set_status(){
 			iglike: config.iglike,
 			igfollow: config.igfollow,
 			tiktoklike: config.tiktoklike,
-			tiktokfollow: config.tiktokfollow
+			tiktokfollow: config.tiktokfollow,
+			fbpostlike: config.fbpostlike,
+			fblike: config.fblike
 		}, function(response){});		
 
 }
@@ -65,6 +71,8 @@ function get_status(){
 		config.igfollow = response.igfollow;
 		config.tiktoklike = response.tiktoklike;
 		config.tiktokfollow = response.tiktokfollow;
+		config.fbpostlike = response.fbpostlike;
+		config.fblike = response.fblike;
 		
 		if (config.enable == 0){
 			$b.text("Start");
@@ -81,6 +89,8 @@ function get_status(){
 		$('#igfollow').prop("checked",config.igfollow);
 		$('#tiktoklike').prop("checked",config.tiktoklike);
 		$('#tiktokfollow').prop("checked",config.tiktokfollow);
+		$('#fbpostlike').prop("checked",config.fbpostlike);
+		$('#fblike').prop("checked",config.fblike);
 	});
 }
 

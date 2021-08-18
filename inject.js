@@ -10,16 +10,21 @@
 
 const _MAX_LOADING_WAIT_TIME = 30;
 const _TIMEOUT_IN_SECS = 60;
+const _MAX_TYPE = 6;
 
 const _ACTION_TYPE_TIKTOK_LIKE = 0;
 const _ACTION_TYPE_TIKTOK_FOLLOW = 1;
 const _ACTION_TYPE_INSTAGRAM_LIKE = 2;
 const _ACTION_TYPE_INSTAGRAM_FOLLOW = 3;
+const _ACTION_TYPE_FACEBOOK_POST_LIKE = 4;
+const _ACTION_TYPE_FACEBOOK_LIKE = 5;
 
 const _TIKTOK_FOLLOW = "https://addmefast.com/free_points/tiktok_followers";
 const _TIKTOK_LIKE = "https://addmefast.com/free_points/tiktok_video_likes";
 const _INSTAGRAM_FOLLOW = "https://addmefast.com/free_points/instagram";
 const _INSTAGRAM_LIKES =  "https://addmefast.com/free_points/instagram_likes";
+const _FACEBOOK_POST_LIKE = "https://addmefast.com/free_points/facebook_post_like";
+const _FACEBOOK_LIKE = "https://addmefast.com/free_points/facebook_likes";
 
 tick_count = 0;
 first = true;
@@ -50,7 +55,7 @@ function clog(s){
 		chrome.runtime.sendMessage({action:"log", log: s});
 }
 
-var _ENABLE_LIST = [true,true,true,true];
+var _ENABLE_LIST = [true,true,true,true,true,true];
 
 function nextActionType(){
 	
@@ -58,10 +63,10 @@ function nextActionType(){
 	var i = 0;
 	var j = config.actionType;
 	var cat = -1;
-	while((i < 4) && (cat == -1)) {
+	while((i < _MAX_TYPE) && (cat == -1)) {
 		
 		i++;
-		if(j < 3) { j++ }
+		if(j < _MAX_TYPE-1) { j++ }
 		else { j = 0; }
 		
 		if(_ENABLE_LIST[j]){
@@ -82,6 +87,13 @@ function nextActionType(){
 
 		case _ACTION_TYPE_INSTAGRAM_FOLLOW : CurActionUrl = _INSTAGRAM_FOLLOW;
 											 break;
+											 
+		case _ACTION_TYPE_FACEBOOK_POST_LIKE : CurActionUrl = _FACEBOOK_POST_LIKE;
+												break;
+												
+		case _ACTION_TYPE_FACEBOOK_LIKE : CurActionUrl = _FACEBOOK_LIKE;
+											break;
+											
 		default : CurActionUrl = "";
 	}
 }
@@ -92,6 +104,8 @@ function urlToActionType(vurl){
 	if(vurl == _TIKTOK_FOLLOW) return _ACTION_TYPE_TIKTOK_FOLLOW;
 	if(vurl == _INSTAGRAM_LIKES) return _ACTION_TYPE_INSTAGRAM_LIKE;
 	if(vurl == _INSTAGRAM_FOLLOW) return _ACTION_TYPE_INSTAGRAM_FOLLOW;
+	if(vurl == _FACEBOOK_POST_LIKE) return _ACTION_TYPE_FACEBOOK_POST_LIKE;
+	if(vurl == _FACEBOOK_LIKE) return _ACTION_TYPE_FACEBOOK_LIKE;
 	return -1;
 }
 
@@ -130,6 +144,8 @@ chrome.runtime.onMessage.addListener(
 		_ENABLE_LIST[1] = request.tiktokfollow;
 		_ENABLE_LIST[2] = request.iglike;
 		_ENABLE_LIST[3] = request.igfollow;
+		_ENABLE_LIST[4] = request.fbpostlike;
+		_ENABLE_LIST[5] = request.fblike;
 
 		tick_count = 0;
 	}
@@ -146,7 +162,8 @@ chrome.runtime.onMessage.addListener(
 		if(opened_tab_id == request.tabid){
 			opened_tab_id = 0;
 			state = _STATE_IDLE;
-			if((config.actionType == _ACTION_TYPE_INSTAGRAM_LIKE) || (config.actionType == _ACTION_TYPE_INSTAGRAM_FOLLOW)) { wait_time = 5; } else { wait_time = 10; }
+			if((config.actionType == _ACTION_TYPE_INSTAGRAM_LIKE) || (config.actionType == _ACTION_TYPE_INSTAGRAM_FOLLOW) || (config.actType == _ACTION_TYPE_FACEBOOK_POST_LIKE)) 
+			{ wait_time = 5; } else { wait_time = 10; }
 		}
 	}
 	
@@ -201,6 +218,9 @@ function isLoading(){
 					_ENABLE_LIST[1] = response.tiktokfollow;
 					_ENABLE_LIST[2] = response.iglike;
 					_ENABLE_LIST[3] = response.igfollow;
+					_ENABLE_LIST[4] = response.fbpostlike;
+					_ENABLE_LIST[5] = response.fblike;
+					
 					config.actionType = response.actType;
 					tab_id = response.tabid;
 				});
@@ -232,6 +252,11 @@ function isLoading(){
 		   if(cur_url.indexOf("instagram.com") !== -1){
 				do_instagram();
 				return;
+		   }
+		   
+		   if(cur_url.indexOf("facebook.com") !== -1){
+			   do_facebook();
+			   return;
 		   }
 		   
 		   if(cur_url.indexOf("addmefast.com") === -1) { return; }
@@ -272,6 +297,11 @@ function isLoading(){
 		   
 		   // addmefast often error and ask to reload
 		   checkReloadButton();
+		   
+		   if(config.actionType != cat){
+			
+			  chrome.runtime.sendMessage({action:"setActType",actType:cat});
+		   }
 		   
    		   config.actionType = cat;
 
