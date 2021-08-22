@@ -9,9 +9,9 @@ The points you get will be used to increase likes/views/shares and others on you
 use dummy account instead of main account to get points
 - if you use instagram account to gain points, YOU HAVE TO LOGOUT AND LOGIN AGAIN (INSTAGRAM ACCOUNT RELOGIN)
 
-How to use and Demo : https://www.youtube.com/watch?v=yVFAYxv3ZT4
+How to use and Demo : https://www.youtube.com/watch?v=_DTZEEoTzZk
 
 I really hope for your support by subscribing to my youtube channel :
-https://www.youtube.com/c/freeangelz?sub_confirmation=1
+https://www.youtube.com/channel/UCqRqvw9n7Lrh79x3dRDOkDg
 
 note: The extension may not work in the future if tiktok/instagram/addmefast change their layout, in this case, you should subscribe my channel to get an update for the new script.
