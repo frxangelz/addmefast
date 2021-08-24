@@ -3,21 +3,12 @@ function do_tiktok_like(){
 	state = _STATE_WAIT_TO_CLOSE;
 	wait_time = 6;
 
-	var div = document.querySelectorAll('div.engagement-icon-v23');
-	for(var i=0; i<div.length; i++){
+	var div = document.querySelectorAll('div.engagement-icon-v23.bar-item-img');
+	if (div){
+		div[0].click();
+		return true;
+	}
 	
-		var svg = div[i].querySelector("svg");
-		if(svg){
-			if(svg.innerHTML.indexOf("g filter") === -1){
-				click(div[i]);
-				return true;
-			}
-
-			return false;
-		}
-	
-	}	
-
 	return false;
 }
 
