@@ -21,13 +21,14 @@ function do_tiktok_follow(){
 	if(!btns) { return false; }
 	if(btns.length < 1) { return false; }
 
-	for(var i=0; i<btns.length; i++){
-		if(btns[i].textContent == "Follow") {
+	btns[0].click();
+//	for(var i=0; i<btns.length; i++){
+//		if(btns[i].textContent == "Follow") {
 
-			btns[i].click();
-			return true;
-		}
-	}	
+//			btns[i].click();
+//			return true;
+//		}
+//	}	
 }
 
 var tiktok_done = false;
@@ -35,7 +36,7 @@ var tiktok_done = false;
 function do_tiktok(){
 	
 	// wait for 5 seconds
-	if(tick_count < 5) { return; }
+	if(tick_count < 2) { return; }
 	
 	if(tick_count > _TIMEOUT_IN_SECS) {
 		// timeout

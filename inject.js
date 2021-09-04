@@ -39,7 +39,7 @@ var config = {
 
 var tab_id = 0;
 var opened_tab_id = 0;
-var wait_time = 10;
+var wait_time = 5;
 
 const _STATE_IDLE = 0;
 const _STATE_WAIT = 1; // tidak ngapa2in
@@ -162,8 +162,9 @@ chrome.runtime.onMessage.addListener(
 		if(opened_tab_id == request.tabid){
 			opened_tab_id = 0;
 			state = _STATE_IDLE;
-			if((config.actionType == _ACTION_TYPE_INSTAGRAM_LIKE) || (config.actionType == _ACTION_TYPE_INSTAGRAM_FOLLOW) || (config.actType == _ACTION_TYPE_FACEBOOK_POST_LIKE)) 
-			{ wait_time = 5; } else { wait_time = 10; }
+			//if((config.actionType == _ACTION_TYPE_INSTAGRAM_LIKE) || (config.actionType == _ACTION_TYPE_INSTAGRAM_FOLLOW) || (config.actType == _ACTION_TYPE_FACEBOOK_POST_LIKE)) 
+			//{ wait_time = 5; } else { wait_time = 10; }
+			wait_time = 3;
 		}
 	}
 	

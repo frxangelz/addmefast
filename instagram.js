@@ -42,7 +42,7 @@ var instagram_done = false;
 function do_instagram(){
 	
 	// wait for 5 seconds
-	if(tick_count < 5) { return; }
+	if(tick_count < 2) { return; }
 	
 	if(tick_count > _TIMEOUT_IN_SECS) {
 		// timeout
