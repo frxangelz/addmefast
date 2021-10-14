@@ -1,66 +1,45 @@
-{
-  "l10nTabName": {
-    "message":"Localization"
-    ,"description":"name of the localization tab"
-  }
-  ,"l10nHeader": {
-    "message":"It does localization too! (this whole tab is, actually)"
-    ,"description":"Header text for the localization section"
-  }
-  ,"l10nIntro": {
-    "message":"'L10n' refers to 'Localization' - 'L' an 'n' are obvious, and 10 comes from the number of letters between those two.  It is the process/whatever of displaying something in the language of choice.  It uses 'I18n', 'Internationalization', which refers to the tools / framework supporting L10n.  I.e., something is internationalized if it has I18n support, and can be localized.  Something is localized for you if it is in your language / dialect."
-    ,"description":"introduce the basic idea."
-  }
-  ,"l10nProd": {
-    "message":"You <strong>are</strong> planning to allow localization, right?  You have <em>no idea</em> who will be using your extension!  You have no idea who will be translating it!  At least support the basics, it's not hard, and having the framework in place will let you transition much more easily later on."
-    ,"description":"drive the point home.  It's good for you."
-  }
-  ,"l10nFirstParagraph": {
-    "message":"When the options page loads, elements decorated with <strong>data-l10n</strong> will automatically be localized!"
-    ,"description":"inform that <el data-l10n='' /> elements will be localized on load"
-  }
-  ,"l10nSecondParagraph": {
-    "message":"If you need more complex localization, you can also define <strong>data-l10n-args</strong>.  This should contain <span class='code'>$containerType$</span> filled with <span class='code'>$dataType$</span>, which will be passed into Chrome's i18n API as <span class='code'>$functionArgs$</span>.  In fact, this paragraph does just that, and wraps the args in mono-space font.  Easy!"
-    ,"description":"introduce the data-l10n-args attribute.  End on a lame note."
-    ,"placeholders": {
-      "containerType": {
-        "content":"$1"
-        ,"example":"'array', 'list', or something similar"
-        ,"description":"type of the args container"
-      }
-      ,"dataType": {
-        "content":"$2"
-        ,"example":"string"
-        ,"description":"type of data in each array index"
-      }
-      ,"functionArgs": {
-        "content":"$3"
-        ,"example":"arguments"
-        ,"description":"whatever you call what you pass into a function/method.  args, params, etc."
-      }
-    }
-  }
-  ,"l10nThirdParagraph": {
-    "message":"Message contents are passed right into innerHTML without processing - include any tags (or even scripts) that you feel like.  If you have an input field, the placeholder will be set instead, and buttons will have the value attribute set."
-    ,"description":"inform that we handle placeholders, buttons, and direct HTML input"
-  }
-  ,"l10nButtonsBefore": {
-    "message":"Different types of buttons are handled as well.  &lt;button&gt; elements have their html set:"
-  }
-  ,"l10nButton": {
-    "message":"in a <strong>button</strong>"
-  }
-  ,"l10nButtonsBetween": {
-    "message":"while &lt;input type='submit'&gt; and &lt;input type='button'&gt; get their 'value' set (note: no HTML):"
-  }
-  ,"l10nSubmit": {
-    "message":"a <strong>submit</strong> value"
-  }
-  ,"l10nButtonsAfter": {
-    "message":"Awesome, no?"
-  }
-  ,"l10nExtras": {
-    "message":"You can even set <span class='code'>data-l10n</span> on things like the &lt;title&gt; tag, which lets you have translatable page titles, or fieldset &lt;legend&gt; tags, or anywhere else - the default <span class='code'>Boil.localize()</span> behavior will check every tag in the document, not just the body."
-    ,"description":"inform about places which may not be obvious, like <title>, etc"
-  }
-}
+
+URL GOTO=https://www.google.com/search?q=vanguard&oq=Vanguard&aqs=chrome.0.69i59j0i67i131i433j0i67l2j46i67i433j69i60l3.2768j0j7&sourceid=chrome&ie=UTF-8
+TAG POS=1 TYPE=H3 ATTR=TXT:Vanguard:<SP>Mutual<SP>funds,<SP>IRAs,<SP>ETFs,<SP>401(k)*
+Wait Seconds=10
+URL GOTO=https://investor.vanguard.com/home
+TAG POS=1 TYPE=A ATTR=ID:vgn-myAccounts
+TAG POS=1 TYPE=A ATTR=TXT:Open<SP>an<SP>Account
+Wait Seconds=10
+URL GOTO=https://personal1.vanguard.com/mmx-move-money/welcome
+TAG POS=1 TYPE=DIV ATTR=TXT:Transfer<SP>or<SP>roll<SP>over<SP>assets<SP>from<SP>an<SP>ac*
+TAG POS=1 TYPE=A ATTR=TXT:Start<SP>your<SP>new<SP>account
+TAG POS=1 TYPE=LI ATTR=TXT:Electronic<SP>bank<SP>transfer
+TAG POS=1 TYPE=DIV ATTR=ID:imacros-highlight-div
+TAG POS=1 TYPE=SPAN ATTR=TXT:Electronic<SP>bank<SP>transfer
+TAG POS=1 TYPE=INPUT:RADIO FORM=ACTION:https://personal1.vanguard.com/mmx-move-money/funding-method ATTR=ID:radioItem0
+TAG POS=1 TYPE=BUTTON FORM=ACTION:https://personal1.vanguard.com/mmx-move-money/funding-method ATTR=TXT:Continue
+URL GOTO=https://personal1.vanguard.com/mmx-move-money/registration-check?prospect=ECS_DOMAIN%2Fona-open-account%2Faccount-selection%2Foverview&redirect=ECS_DOMAIN%2Fona-open-account%2Fsecure%2Faccount-selection%2Foverview
+TAG POS=1 TYPE=SECTION ATTR=TXT:No,<SP>I'm<SP>new<SP>hereNice<SP>to<SP>meet<SP>you!<SP>You'l*
+TAG POS=1 TYPE=A ATTR=TXT:Continue
+TAG POS=1 TYPE=BUTTON ATTR=TXT:Continue
+TAG POS=1 TYPE=MAT-CARD ATTR=TXT:Retirement<SP>(IRAs)<SP>General<SP>investing<SP>(individual,*
+TAG POS=2 TYPE=DIV ATTR=TXT:Retirement<SP>(IRAs)
+TAG POS=1 TYPE=INPUT:RADIO FORM=ACTION:https://personal1.vanguard.com/ona-open-account/account-selection/goal ATTR=ID:mat-radio-2-input
+TAG POS=1 TYPE=MAT-RADIO-BUTTON ATTR=ID:mat-radio-7
+TAG POS=1 TYPE=DIV ATTR=TXT:Traditional<SP>IRA
+TAG POS=1 TYPE=INPUT:RADIO FORM=ACTION:https://personal1.vanguard.com/ona-open-account/account-selection/goal ATTR=ID:mat-radio-7-input
+TAG POS=1 TYPE=BUTTON FORM=ACTION:https://personal1.vanguard.com/ona-open-account/account-selection/goal ATTR=TXT:Continue
+URL GOTO=https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=beaf79ab-636f-4638-ac66-64075fc6b904&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3Dbeaf79ab-636f-4638-ac66-64075fc6b904
+URL GOTO=https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=1747f1e8-194b-42f6-9ba8-e7b5fe42de6d&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3D1747f1e8-194b-42f6-9ba8-e7b5fe42de6d
+TAG POS=1 TYPE=INPUT:TEXT FORM=ACTION:https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=1747f1e8-194b-42f6-9ba8-e7b5fe42de6d&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3D1747f1e8-194b-42f6-9ba8-e7b5fe42de6d ATTR=ID:firstName CONTENT=asdw
+TAG POS=1 TYPE=INPUT:TEXT FORM=ACTION:https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=1747f1e8-194b-42f6-9ba8-e7b5fe42de6d&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3D1747f1e8-194b-42f6-9ba8-e7b5fe42de6d ATTR=ID:lastName CONTENT=asdasdfsf
+TAG POS=1 TYPE=INPUT:EMAIL FORM=ACTION:https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=1747f1e8-194b-42f6-9ba8-e7b5fe42de6d&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3D1747f1e8-194b-42f6-9ba8-e7b5fe42de6d ATTR=ID:email CONTENT=freefrwead@yaho.ocom
+TAG POS=1 TYPE=DIV ATTR=TXT:Birth<SP>date<SP>(MM/DD/YYYY)U.S.<SP>citizenResident<SP>alie*
+TAG POS=2 TYPE=DIV ATTR=ID:imacros-highlight-div
+TAG POS=1 TYPE=DIV ATTR=ID:imacros-highlight-div
+TAG POS=1 TYPE=INPUT:TEXT FORM=ACTION:https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=1747f1e8-194b-42f6-9ba8-e7b5fe42de6d&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3D1747f1e8-194b-42f6-9ba8-e7b5fe42de6d ATTR=ID:birthDate CONTENT=02/09/2023
+TAG POS=1 TYPE=DIV ATTR=TXT:Email
+TAG POS=2 TYPE=DIV ATTR=TXT:U.S.<SP>citizenResident<SP>alienNonresident<SP>alienCitizens*
+TAG POS=1 TYPE=INPUT:TEXT FORM=ACTION:https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=1747f1e8-194b-42f6-9ba8-e7b5fe42de6d&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3D1747f1e8-194b-42f6-9ba8-e7b5fe42de6d ATTR=ID:birthDate CONTENT=02/09/1999
+TAG POS=2 TYPE=DIV ATTR=TXT:U.S.<SP>citizenResident<SP>alienNonresident<SP>alienCitizens*
+TAG POS=1 TYPE=DIV ATTR=ID:imacros-highlight-div
+TAG POS=1 TYPE=SELECT FORM=ACTION:https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=1747f1e8-194b-42f6-9ba8-e7b5fe42de6d&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3D1747f1e8-194b-42f6-9ba8-e7b5fe42de6d ATTR=ID:citizenshipStatus CONTENT=%US
+TAG POS=1 TYPE=INPUT:TEXT FORM=ACTION:https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=1747f1e8-194b-42f6-9ba8-e7b5fe42de6d&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3D1747f1e8-194b-42f6-9ba8-e7b5fe42de6d ATTR=ID:ssn-private CONTENT=536-54-6768
+TAG POS=1 TYPE=SELECT FORM=ACTION:https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=1747f1e8-194b-42f6-9ba8-e7b5fe42de6d&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3D1747f1e8-194b-42f6-9ba8-e7b5fe42de6d ATTR=ID:gender CONTENT=%M
+TAG POS=1 TYPE=BUTTON ATTR=ID:continueButton
