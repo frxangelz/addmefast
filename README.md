@@ -8,6 +8,7 @@ you can get free points by liking/following/viewing/subscribing/listening the ot
 The points you get will be used to increase likes/views/shares and others on your social media accounts such as Facebook, Twitter, Instagram, TikTok, YouTube and many more.
 
 *** YOU MUST USE ENGLISH LAYOUT FOR YOUR DUMMY SOCIAL MEDIA ACCOUNT ***
+
 *** YOU HAVE TO ALLOW POPUP FOR ADDMEFAST SITE IN CHROME/EDGE/OPERA SETTINGS !!! ***
 
 
