@@ -1,10 +1,15 @@
 # addmefast
 
+0.0.4
+- Fixed for tiktok like and follow (element changed)
+
 AddMeFast is a network that will help you grow your social presence, allow you to look and choose who you want to like/subscribe/follow/view and skip those who you are not interested in. 
 you can get free points by liking/following/viewing/subscribing/listening the others pages/accounts/videos/profiles/music. 
 The points you get will be used to increase likes/views/shares and others on your social media accounts such as Facebook, Twitter, Instagram, TikTok, YouTube and many more.
 
-- YOU HAVE TO ALLOW POPUP FOR ADDMEFAST SITE IN CHROME/EDGE/OPERA SETTINGS !!! 
+*** YOU MUST USE ENGLISH LAYOUT FOR YOUR DUMMY SOCIAL MEDIA ACCOUNT ***
+*** YOU HAVE TO ALLOW POPUP FOR ADDMEFAST SITE IN CHROME/EDGE/OPERA SETTINGS !!! ***
+
 
 use dummy account instead of main account to get points
 - if you use instagram account to gain points, YOU HAVE TO LOGOUT AND LOGIN AGAIN (INSTAGRAM ACCOUNT RELOGIN)

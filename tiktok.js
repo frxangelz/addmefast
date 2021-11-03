@@ -3,8 +3,9 @@ function do_tiktok_like(){
 	state = _STATE_WAIT_TO_CLOSE;
 	wait_time = 6;
 
-	var div = document.querySelectorAll('div.engagement-icon-v23.bar-item-img');
+	var div = document.querySelectorAll('span[data-e2e="like-icon"');
 	if (div){
+		console.log("Clicked !");
 		div[0].click();
 		return true;
 	}
@@ -17,18 +18,18 @@ function do_tiktok_follow(){
 	state = _STATE_WAIT_TO_CLOSE;
 	wait_time = 6;
 
-	var btns = document.querySelectorAll("button.follow-button");
+	var btns = document.getElementsByTagName("button");
 	if(!btns) { return false; }
 	if(btns.length < 1) { return false; }
 
-	btns[0].click();
-//	for(var i=0; i<btns.length; i++){
-//		if(btns[i].textContent == "Follow") {
+	//btns[0].click();
+	for(var i=0; i<btns.length; i++){
+		if(btns[i].textContent == "Follow") {
 
-//			btns[i].click();
-//			return true;
-//		}
-//	}	
+			btns[i].click();
+			return true;
+		}
+	}	
 }
 
 var tiktok_done = false;
