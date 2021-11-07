@@ -10,7 +10,7 @@
 
 const _MAX_LOADING_WAIT_TIME = 30;
 const _TIMEOUT_IN_SECS = 60;
-const _MAX_TYPE = 6;
+const _MAX_TYPE = 8;
 
 const _ACTION_TYPE_TIKTOK_LIKE = 0;
 const _ACTION_TYPE_TIKTOK_FOLLOW = 1;
@@ -18,6 +18,8 @@ const _ACTION_TYPE_INSTAGRAM_LIKE = 2;
 const _ACTION_TYPE_INSTAGRAM_FOLLOW = 3;
 const _ACTION_TYPE_FACEBOOK_POST_LIKE = 4;
 const _ACTION_TYPE_FACEBOOK_LIKE = 5;
+const _ACTION_TYPE_TWITTER_FOLLOW = 6;
+const _ACTION_TYPE_TWITTER_LIKE = 7;
 
 const _TIKTOK_FOLLOW = "https://addmefast.com/free_points/tiktok_followers";
 const _TIKTOK_LIKE = "https://addmefast.com/free_points/tiktok_video_likes";
@@ -25,6 +27,8 @@ const _INSTAGRAM_FOLLOW = "https://addmefast.com/free_points/instagram";
 const _INSTAGRAM_LIKES =  "https://addmefast.com/free_points/instagram_likes";
 const _FACEBOOK_POST_LIKE = "https://addmefast.com/free_points/facebook_post_like";
 const _FACEBOOK_LIKE = "https://addmefast.com/free_points/facebook_likes";
+const _TWITTER_FOLLOW = "https://addmefast.com/free_points/twitter";
+const _TWITTER_LIKE = "https://addmefast.com/free_points/twitter_likes";
 
 tick_count = 0;
 first = true;
@@ -55,7 +59,7 @@ function clog(s){
 		chrome.runtime.sendMessage({action:"log", log: s});
 }
 
-var _ENABLE_LIST = [true,true,true,true,true,true];
+var _ENABLE_LIST = [true,true,true,true,true,true,true,true];
 
 function nextActionType(){
 	
@@ -93,6 +97,12 @@ function nextActionType(){
 												
 		case _ACTION_TYPE_FACEBOOK_LIKE : CurActionUrl = _FACEBOOK_LIKE;
 											break;
+		
+		case _ACTION_TYPE_TWITTER_FOLLOW : CurActionUrl = _TWITTER_FOLLOW;
+			break;
+			
+		case _ACTION_TYPE_TWITTER_LIKE : CurActionUrl = _TWITTER_LIKE;
+			break;
 											
 		default : CurActionUrl = "";
 	}
@@ -106,6 +116,8 @@ function urlToActionType(vurl){
 	if(vurl == _INSTAGRAM_FOLLOW) return _ACTION_TYPE_INSTAGRAM_FOLLOW;
 	if(vurl == _FACEBOOK_POST_LIKE) return _ACTION_TYPE_FACEBOOK_POST_LIKE;
 	if(vurl == _FACEBOOK_LIKE) return _ACTION_TYPE_FACEBOOK_LIKE;
+	if(vurl == _TWITTER_FOLLOW) return _ACTION_TYPE_TWITTER_FOLLOW;
+	if(vurl == _TWITTER_LIKE) return _ACTION_TYPE_TWITTER_LIKE;
 	return -1;
 }
 
@@ -146,6 +158,8 @@ chrome.runtime.onMessage.addListener(
 		_ENABLE_LIST[3] = request.igfollow;
 		_ENABLE_LIST[4] = request.fbpostlike;
 		_ENABLE_LIST[5] = request.fblike;
+		_ENABLE_LIST[6] = request.twitterfollow;
+		_ENABLE_LIST[7] = request.twitterlike;
 
 		tick_count = 0;
 	}
@@ -162,8 +176,6 @@ chrome.runtime.onMessage.addListener(
 		if(opened_tab_id == request.tabid){
 			opened_tab_id = 0;
 			state = _STATE_IDLE;
-			//if((config.actionType == _ACTION_TYPE_INSTAGRAM_LIKE) || (config.actionType == _ACTION_TYPE_INSTAGRAM_FOLLOW) || (config.actType == _ACTION_TYPE_FACEBOOK_POST_LIKE)) 
-			//{ wait_time = 5; } else { wait_time = 10; }
 			wait_time = 3;
 		}
 	}
@@ -257,6 +269,11 @@ function isLoading(){
 		   
 		   if(cur_url.indexOf("facebook.com") !== -1){
 			   do_facebook();
+			   return;
+		   }
+		   
+		   if(cur_url.indexOf("twitter.com") !== -1){
+			   do_twitter();
 			   return;
 		   }
 		   

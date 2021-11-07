@@ -1,7 +1,7 @@
 # addmefast
 
-0.0.4
-- Fixed for tiktok like and follow (element changed)
+0.0.5
+- added twitter support ( follow & like )
 
 AddMeFast is a network that will help you grow your social presence, allow you to look and choose who you want to like/subscribe/follow/view and skip those who you are not interested in. 
 you can get free points by liking/following/viewing/subscribing/listening the others pages/accounts/videos/profiles/music. 
@@ -16,6 +16,8 @@ use dummy account instead of main account to get points
 - if you use instagram account to gain points, YOU HAVE TO LOGOUT AND LOGIN AGAIN (INSTAGRAM ACCOUNT RELOGIN)
 
 How to use and Demo : https://www.youtube.com/watch?v=_DTZEEoTzZk
+
+if you have any questions please leave a comment on youtube :)
 
 I really hope for your support by subscribing to my youtube channel :
 https://www.youtube.com/channel/UCqRqvw9n7Lrh79x3dRDOkDg

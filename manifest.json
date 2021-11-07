@@ -5,7 +5,7 @@
             "background.js"
         ]
     },
-  "version": "0.0.2",
+  "version": "0.0.5",
   "manifest_version": 2,
   "description": "Macro to gain addmefast point",
   "homepage_url": "http://frxangelz.blogspot.com",
@@ -22,8 +22,7 @@
   },
   "permissions": [
     "background",
-    "http://*.tiktok.com/*",
-    "https://tiktok.com/*"
+	"storage" 
   ],
   "content_scripts": [
     {
@@ -35,6 +34,7 @@
         "inject.js",
 		"tiktok.js",
 		"instagram.js",
+		"twitter.js",
 		"fb.js"
       ]
     }

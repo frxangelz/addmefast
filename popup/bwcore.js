@@ -5,8 +5,10 @@ var config = {
 	igfollow: false,
 	tiktoklike: false,
 	tiktokfollow: false,
-	fbpostlike: true,
-	fblike: true
+	fbpostlike: false,
+	fblike: false,
+	twitterfollow: false,
+	twitterlike: false
 }
 
 $(document).ready(function(){
@@ -21,8 +23,11 @@ $(document).ready(function(){
 			config.tiktokfollow = $("#tiktokfollow").is(":checked");
 			config.fbpostlike = $("#fbpostlike").is(":checked");
 			config.fblike = $("#fblike").is(":checked");
+			config.twitterfollow = $("#twitterfollow").is(":checked");
+			config.twitterlike = $("#twitterlike").is(":checked");
 
-			if((!config.iglike) && (!config.igfollow) && (!config.tiktoklike) && (!config.tiktokfollow) && (!config.fblike) && (!config.fbpostlike)){
+			if((!config.iglike) && (!config.igfollow) && (!config.tiktoklike) && (!config.tiktokfollow) && (!config.fblike) && 
+			   (!config.fbpostlike) && (!config.twitterfollow) && (!config.twitterlike)){
 				return;
 			}
 
@@ -30,6 +35,10 @@ $(document).ready(function(){
 			$(this).text("Stop");
 			$(this).removeClass("btn-success");
 			$(this).addClass("btn-danger");
+			
+			chrome.storage.sync.set({max:config.max, iglike: config.iglike, igfollow: config.igfollow, tiktoklike:config.tiktoklike,
+									tiktokfollow:config.tiktokfollow, fbpostlike:config.fbpostlike,fblike:config.fblike,
+									twitterfollow:config.twitterfollow, twitterlike:config.twitterlike});
 			
 		} else {
 			$(this).text("Start");
@@ -55,7 +64,9 @@ function set_status(){
 			tiktoklike: config.tiktoklike,
 			tiktokfollow: config.tiktokfollow,
 			fbpostlike: config.fbpostlike,
-			fblike: config.fblike
+			fblike: config.fblike,
+			twitterfollow: config.twitterfollow,
+			twitterlike: config.twitterlike
 		}, function(response){});		
 
 }
@@ -73,6 +84,8 @@ function get_status(){
 		config.tiktokfollow = response.tiktokfollow;
 		config.fbpostlike = response.fbpostlike;
 		config.fblike = response.fblike;
+		config.twitterfollow = response.twitterfollow;
+		config.twitterlike = response.twitterlike;
 		
 		if (config.enable == 0){
 			$b.text("Start");
@@ -91,6 +104,8 @@ function get_status(){
 		$('#tiktokfollow').prop("checked",config.tiktokfollow);
 		$('#fbpostlike').prop("checked",config.fbpostlike);
 		$('#fblike').prop("checked",config.fblike);
+		$('#twitterfollow').prop("checked",config.twitterfollow);
+		$('#twitterlike').prop("checked",config.twitterlike);
 	});
 }
 
