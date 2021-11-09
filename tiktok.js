@@ -3,8 +3,13 @@ function do_tiktok_like(){
 	state = _STATE_WAIT_TO_CLOSE;
 	wait_time = 6;
 
-	var div = document.querySelectorAll('span[data-e2e="like-icon"');
-	if (div){
+	// engagement-icon-v23
+	var div = document.querySelectorAll('div.engagement-icon-v23');
+	if((!div) || (div.length < 1)){
+		div = document.querySelectorAll('span[data-e2e="like-icon"');
+	}
+	
+	if ((div) && (div.length > 0)){
 		console.log("Clicked !");
 		div[0].click();
 		return true;

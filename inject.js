@@ -233,8 +233,8 @@ function isLoading(){
 					_ENABLE_LIST[3] = response.igfollow;
 					_ENABLE_LIST[4] = response.fbpostlike;
 					_ENABLE_LIST[5] = response.fblike;
-					_ENABLE_LIST[6] = response.tiktokfollow;
-					_ENABLE_LIST[7] = response.tiktoklike;
+					_ENABLE_LIST[6] = response.twitterfollow;;
+					_ENABLE_LIST[7] = response.twitterlike;
 					
 					config.actionType = response.actType;
 					tab_id = response.tabid;

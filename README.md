@@ -1,5 +1,8 @@
 # addmefast
 
+0.0.6
+- fix tiktok like
+
 0.0.5
 - added twitter support ( follow & like )
 
