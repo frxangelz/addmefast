@@ -45,7 +45,7 @@ function do_twitter_follow(){
 	return false;
 }
 
-var tiktok_done = false;
+var twitter_done = false;
 
 function do_twitter(){
 	
@@ -57,9 +57,9 @@ function do_twitter(){
 		window.close();
 	}
 
-	if(tiktok_done) { return; }
+	if(twitter_done) { return; }
 	
-	tiktok_done = true;
+	twitter_done = true;
 	console.log("config.actionType = "+config.actionType);
 	
 	if (config.actionType === _ACTION_TYPE_TWITTER_LIKE) {
