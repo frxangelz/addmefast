@@ -11,7 +11,8 @@ function do_tiktok_like(){
 	
 	if ((div) && (div.length > 0)){
 		console.log("Clicked !");
-		div[0].click();
+		//div[0].click();
+		click(div[0]);
 		return true;
 	}
 	
@@ -31,7 +32,8 @@ function do_tiktok_follow(){
 	for(var i=0; i<btns.length; i++){
 		if(btns[i].textContent == "Follow") {
 
-			btns[i].click();
+			//btns[i].click();
+			click(btns[i]);
 			return true;
 		}
 	}	

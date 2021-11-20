@@ -14,6 +14,10 @@ var config = {
 	fblike: false,
 	twitterfollow:false,
 	twitterlike:false,
+	ytsub:false,
+	ytlike:false,
+	scfollow:false,
+	sclike:false,
 	actionType: 3,
 }
 
@@ -31,6 +35,10 @@ chrome.runtime.onMessage.addListener(
 		config.fblike = request.fblike;
 		config.twitterfollow = request.twitterfollow;
 		config.twitterlike = request.twitterlike;
+		config.ytsub = request.ytsub;
+		config.ytlike = request.ytlike;
+		config.scfollow = request.scfollow;
+		config.sclike = request.sclike;
 		send_enable();
 		return;
 	}
@@ -51,6 +59,10 @@ chrome.runtime.onMessage.addListener(
 					   fblike:config.fblike,
 					   twitterfollow:config.twitterfollow,
 					   twitterlike:config.twitterlike,
+					   ytsub:config.ytsub,
+					   ytlike:config.ytlike,
+					   scfollow:config.scfollow,
+					   sclike:config.sclike,
 					   actType:config.actionType, 
 					   tabid:vtabid};
 		opened_tab_id = vtabid;
@@ -89,6 +101,10 @@ chrome.runtime.onMessage.addListener(
 					   fblike:config.fblike,
 					   twitterfollow:config.twitterfollow,
 					   twitterlike:config.twitterlike,
+					   ytsub:config.ytsub,
+					   ytlike:config.ytlike,
+					   scfollow:config.scfollow,
+					   sclike:config.sclike,
 					   actType:config.actionType};
 		for (var i=0; i<tabs.length; ++i) {
 			chrome.tabs.sendMessage(tabs[i].id, message);
@@ -177,3 +193,32 @@ function send_notify(vaction, vtabid){
 			console.log("twitterlike From config : "+config.twitterlike);
 		}
 	});
+
+ 	chrome.storage.sync.get('ytsub', function(data) {
+		if((data.ytsub) && (data.ytsub != 0)){
+			config.ytsub = data.ytsub;
+			console.log("ytsub From config : "+config.ytsub);
+		}
+	});
+
+ 	chrome.storage.sync.get('ytlike', function(data) {
+		if((data.ytlike) && (data.ytlike != 0)){
+			config.ytlike = data.ytlike;
+			console.log("ytlike From config : "+config.ytlike);
+		}
+	});
+
+ 	chrome.storage.sync.get('scfollow', function(data) {
+		if((data.scfollow) && (data.scfollow != 0)){
+			config.scfollow = data.scfollow;
+			console.log("scfollow From config : "+config.scfollow);
+		}
+	});
+
+ 	chrome.storage.sync.get('sclike', function(data) {
+		if((data.sclike) && (data.sclike != 0)){
+			config.sclike = data.sclike;
+			console.log("sclike From config : "+config.sclike);
+		}
+	});
+

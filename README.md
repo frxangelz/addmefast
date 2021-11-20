@@ -1,5 +1,10 @@
 # addmefast
 
+0.0.7
+- added soundcloud support ( follow & like )
+- added youtube support ( subscribe & like )
+- fix tiktok like
+
 0.0.6
 - fix tiktok like
 
@@ -25,4 +30,4 @@ if you have any questions please leave a comment on youtube :)
 I really hope for your support by subscribing to my youtube channel :
 https://www.youtube.com/channel/UCqRqvw9n7Lrh79x3dRDOkDg
 
-note: The extension may not work in the future if tiktok/instagram/addmefast change their layout, in this case, you should subscribe my channel to get an update for the new script.
+note: The extension may not work in the future if tiktok/instagram/facebook/twitter/soundcloud/youtube/addmefast change their layout, in this case, you should subscribe my channel to get an update for the new script.

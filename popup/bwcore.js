@@ -8,7 +8,11 @@ var config = {
 	fbpostlike: false,
 	fblike: false,
 	twitterfollow: false,
-	twitterlike: false
+	twitterlike: false,
+	ytsub: false,
+	ytlike: false,
+	scfollow: false,
+	sclike: false
 }
 
 $(document).ready(function(){
@@ -25,9 +29,14 @@ $(document).ready(function(){
 			config.fblike = $("#fblike").is(":checked");
 			config.twitterfollow = $("#twitterfollow").is(":checked");
 			config.twitterlike = $("#twitterlike").is(":checked");
+			config.ytsub = $("#ytsub").is(":checked");
+			config.ytlike = $("#ytlike").is(":checked");
+			config.scfollow = $("#scfollow").is(":checked");
+			config.sclike = $("#sclike").is(":checked");
 
 			if((!config.iglike) && (!config.igfollow) && (!config.tiktoklike) && (!config.tiktokfollow) && (!config.fblike) && 
-			   (!config.fbpostlike) && (!config.twitterfollow) && (!config.twitterlike)){
+			   (!config.fbpostlike) && (!config.twitterfollow) && (!config.twitterlike) && (!config.ytsub) && (!config.ytlike) &&
+			  (!config.scfollow) && (!config.sclike)){
 				return;
 			}
 
@@ -38,7 +47,8 @@ $(document).ready(function(){
 			
 			chrome.storage.sync.set({max:config.max, iglike: config.iglike, igfollow: config.igfollow, tiktoklike:config.tiktoklike,
 									tiktokfollow:config.tiktokfollow, fbpostlike:config.fbpostlike,fblike:config.fblike,
-									twitterfollow:config.twitterfollow, twitterlike:config.twitterlike});
+									twitterfollow:config.twitterfollow, twitterlike:config.twitterlike,ytsub:config.ytsub,ytlike:config.ytlike,
+									scfollow:config.scfollow,sclike:config.sclike});
 			
 		} else {
 			$(this).text("Start");
@@ -56,6 +66,7 @@ $(document).ready(function(){
 
 function set_status(){
 	
+	EnableControls(config.enable ? true : false);
 	chrome.runtime.sendMessage({action: "set",
 			enable: config.enable,
 			max: config.max,
@@ -66,7 +77,11 @@ function set_status(){
 			fbpostlike: config.fbpostlike,
 			fblike: config.fblike,
 			twitterfollow: config.twitterfollow,
-			twitterlike: config.twitterlike
+			twitterlike: config.twitterlike,
+			ytsub: config.ytsub,
+			ytlike: config.ytlike,
+			scfollow: config.scfollow,
+			sclike: config.sclike
 		}, function(response){});		
 
 }
@@ -86,6 +101,10 @@ function get_status(){
 		config.fblike = response.fblike;
 		config.twitterfollow = response.twitterfollow;
 		config.twitterlike = response.twitterlike;
+		config.ytsub = response.ytsub;
+		config.ytlike = response.ytlike;
+		config.scfollow = response.scfollow;
+		config.sclike = response.sclike;
 		
 		if (config.enable == 0){
 			$b.text("Start");
@@ -106,6 +125,13 @@ function get_status(){
 		$('#fblike').prop("checked",config.fblike);
 		$('#twitterfollow').prop("checked",config.twitterfollow);
 		$('#twitterlike').prop("checked",config.twitterlike);
+		$('#ytsub').prop("checked",config.ytsub);
+		$('#ytlike').prop("checked",config.ytlike);
+		$('#scfollow').prop("checked",config.scfollow);
+		$('#sclike').prop("checked",config.sclike);
+		
+		EnableControls(config.enable ? true : false);
+		
 	});
 }
 
@@ -124,3 +150,19 @@ chrome.runtime.onMessage.addListener(
 		return;
 	}
 });
+
+function EnableControls(val){
+		$('#maxclick').prop("disabled",val);
+		$('#iglike').prop("disabled",val);
+		$('#igfollow').prop("disabled",val);
+		$('#tiktoklike').prop("disabled",val);
+		$('#tiktokfollow').prop("disabled",val);
+		$('#fbpostlike').prop("disabled",val);
+		$('#fblike').prop("disabled",val);
+		$('#twitterfollow').prop("disabled",val);
+		$('#twitterlike').prop("disabled",val);
+		$('#ytsub').prop("disabled",val);
+		$('#ytlike').prop("disabled",val);
+		$('#scfollow').prop("disabled",val);
+		$('#sclike').prop("disabled",val);
+}
