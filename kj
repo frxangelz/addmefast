@@ -1,0 +1,28 @@
+
+URL GOTO=https://www.google.com/search?q=vanguard&oq=Vanguard&aqs=chrome.0.69i59j0i67i131i433j0i67l2j46i67i433j69i60l3.2768j0j7&sourceid=chrome&ie=UTF-8
+TAG POS=1 TYPE=H3 ATTR=TXT:Vanguard:<SP>Mutual<SP>funds,<SP>IRAs,<SP>ETFs,<SP>401(k)*
+Wait Seconds=10
+URL GOTO=https://investor.vanguard.com/home
+TAG POS=1 TYPE=A ATTR=ID:vgn-myAccounts
+TAG POS=1 TYPE=A ATTR=TXT:Open<SP>an<SP>Account
+Wait Seconds=10
+URL GOTO=https://personal1.vanguard.com/mmx-move-money/welcome
+TAG POS=1 TYPE=DIV ATTR=TXT:Transfer<SP>or<SP>roll<SP>over<SP>assets<SP>from<SP>an<SP>ac*
+TAG POS=1 TYPE=A ATTR=TXT:Start<SP>your<SP>new<SP>account
+TAG POS=1 TYPE=LI ATTR=TXT:Electronic<SP>bank<SP>transfer
+TAG POS=1 TYPE=DIV ATTR=ID:imacros-highlight-div
+TAG POS=1 TYPE=SPAN ATTR=TXT:Electronic<SP>bank<SP>transfer
+TAG POS=1 TYPE=INPUT:RADIO FORM=ACTION:https://personal1.vanguard.com/mmx-move-money/funding-method ATTR=ID:radioItem0
+TAG POS=1 TYPE=BUTTON FORM=ACTION:https://personal1.vanguard.com/mmx-move-money/funding-method ATTR=TXT:Continue
+URL GOTO=https://personal1.vanguard.com/mmx-move-money/registration-check?prospect=ECS_DOMAIN%2Fona-open-account%2Faccount-selection%2Foverview&redirect=ECS_DOMAIN%2Fona-open-account%2Fsecure%2Faccount-selection%2Foverview
+TAG POS=1 TYPE=SECTION ATTR=TXT:No,<SP>I'm<SP>new<SP>hereNice<SP>to<SP>meet<SP>you!<SP>You'l*
+TAG POS=1 TYPE=A ATTR=TXT:Continue
+TAG POS=1 TYPE=BUTTON ATTR=TXT:Continue
+TAG POS=1 TYPE=MAT-CARD ATTR=TXT:Retirement<SP>(IRAs)<SP>General<SP>investing<SP>(individual,*
+TAG POS=2 TYPE=DIV ATTR=TXT:Retirement<SP>(IRAs)
+TAG POS=1 TYPE=INPUT:RADIO FORM=ACTION:https://personal1.vanguard.com/ona-open-account/account-selection/goal ATTR=ID:mat-radio-2-input
+TAG POS=1 TYPE=MAT-RADIO-BUTTON ATTR=ID:mat-radio-7
+TAG POS=1 TYPE=DIV ATTR=TXT:Traditional<SP>IRA
+TAG POS=1 TYPE=INPUT:RADIO FORM=ACTION:https://personal1.vanguard.com/ona-open-account/account-selection/goal ATTR=ID:mat-radio-7-input
+TAG POS=1 TYPE=BUTTON FORM=ACTION:https://personal1.vanguard.com/ona-open-account/account-selection/goal ATTR=TXT:Continue
+URL GOTO=https://sign-up.vanguard.com/personal-info?features=stayOnPage&TID=beaf79ab-636f-4638-ac66-64075fc6b904&surveyId=oaa-feedback&flowType=OA&destination=https:%2F%2Fpersonal1.vanguard.com%2Fona-open-account%2Ffunding-info%2Fbanking-info%3FflowType%3DPVR%26TID%3Dbeaf79ab-636f-4638-ac66-64075fc6b904
