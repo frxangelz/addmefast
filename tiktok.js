@@ -1,7 +1,7 @@
 function do_tiktok_like(){
 
 	state = _STATE_WAIT_TO_CLOSE;
-	wait_time = 6;
+	wait_time = 120;
 
 	// engagement-icon-v23
 	var div = document.querySelectorAll('div.engagement-icon-v23');
@@ -22,7 +22,7 @@ function do_tiktok_like(){
 function do_tiktok_follow(){
 
 	state = _STATE_WAIT_TO_CLOSE;
-	wait_time = 6;
+	wait_time = 120;
 
 	var btns = document.getElementsByTagName("button");
 	if(!btns) { return false; }
